@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RagnarokOnlineItemViewer"
+        xmlns:views ="clr-namespace:RagnarokOnlineItemViewer.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Ragnarok Online Item Viewer" Height="400" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" MinWidth="200"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="2*" MinWidth="400"/>
+        </Grid.ColumnDefinitions>
+        <views:ItemListView Margin="10" Background="CornflowerBlue"/>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
+        <views:ItemView Grid.Column="2" Margin="10" Background="CornflowerBlue"/>
     </Grid>
 </Window>
