@@ -15,6 +15,6 @@
         </Grid.ColumnDefinitions>
         <views:ItemListView Margin="10" Background="CornflowerBlue"/>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
-        <views:ItemView Grid.Column="2" Margin="10" Background="CornflowerBlue"/>
+        <views:ItemDetailsView Grid.Column="2" Margin="10" Background="CornflowerBlue"/>
     </Grid>
 </Window>
