@@ -3,10 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RagnarokOnlineItemViewer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Margin="10" Background="Beige">
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="ItemDetailsView"/>
-    </Grid>
+    <StackPanel Margin="10" Background="Beige">
+        <DockPanel>
+            <TextBlock Text="ID:"/>
+            <TextBox Text="{Binding ID, Mode=OneWay}"/>
+            <TextBlock Text="Name:"/>
+            <TextBox Text="{Binding Name, Mode=OneWay}"/>
+        </DockPanel>
+        <TextBlock Text="Description:"/>
+        <TextBox Text="{Binding Description, Mode=OneWay}"/>
+    </StackPanel>
 </UserControl>

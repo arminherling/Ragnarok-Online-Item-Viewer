@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RagnarokOnlineItemViewer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,14 @@ namespace RagnarokOnlineItemViewer.ViewModels
         public ItemsViewModel()
         {
             ItemDetailsViewModel = new ItemDetailsViewModel();
+            ItemDetailsViewModel.SetItem( new Item( id: 123, name: "test", description: "description" ) );
         }
 
-        private BindableBase _itemDetailsViewModel;
-        public BindableBase ItemDetailsViewModel
+        private ItemDetailsViewModel _itemDetailsViewModel;
+        public ItemDetailsViewModel ItemDetailsViewModel
         {
             get => _itemDetailsViewModel;
             set => SetProperty( ref _itemDetailsViewModel, value );
         }
     }
-} 
+}
