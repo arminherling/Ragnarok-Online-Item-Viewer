@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RagnarokOnlineItemViewer.Views
 {
     /// <summary>
-    /// Interaction logic for ItemListView.xaml
+    /// Interaction logic for ItemsView.xaml
     /// </summary>
-    public partial class ItemListView : UserControl
+    public partial class ItemsView : UserControl
     {
-        public ItemListView()
+        public ItemsView()
         {
             InitializeComponent();
         }

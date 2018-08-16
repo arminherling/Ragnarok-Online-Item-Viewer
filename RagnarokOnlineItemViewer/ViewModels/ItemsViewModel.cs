@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
-    class ItemListViewModel
+    class ItemsViewModel
     {
     }
 }

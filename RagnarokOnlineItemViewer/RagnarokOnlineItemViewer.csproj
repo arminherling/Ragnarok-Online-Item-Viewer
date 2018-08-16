@@ -56,7 +56,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Views\ItemListView.xaml">
+    <Page Include="Views\ItemsView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ItemDetailsView.xaml">
@@ -71,10 +71,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Item.cs" />
-    <Compile Include="ViewModels\ItemListViewModel.cs" />
+    <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\ItemDetailsViewModel.cs" />
-    <Compile Include="Views\ItemListView.xaml.cs">
-      <DependentUpon>ItemListView.xaml</DependentUpon>
+    <Compile Include="Views\ItemsView.xaml.cs">
+      <DependentUpon>ItemsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemDetailsView.xaml.cs">
       <DependentUpon>ItemDetailsView.xaml</DependentUpon>
