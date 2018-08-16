@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RagnarokOnlineItemViewer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid Margin="10" Background="Beige">
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="ItemDetailsView"/>
     </Grid>
 </UserControl>

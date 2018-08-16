@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RagnarokOnlineItemViewer"
         xmlns:views ="clr-namespace:RagnarokOnlineItemViewer.Views"
+        xmlns:viewModels="clr-namespace:RagnarokOnlineItemViewer.ViewModels"
         mc:Ignorable="d"
         Title="Ragnarok Online Item Viewer" Height="400" Width="800">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:ItemsViewModel}">
+            <views:ItemsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ItemDetailsViewModel}">
+            <views:ItemDetailsView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        <views:ItemsView/>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

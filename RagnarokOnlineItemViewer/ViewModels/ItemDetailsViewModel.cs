@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
-    public class ItemDetailsViewModel
+    public class ItemDetailsViewModel : BindableBase
     {
         public string Number { get => String.Empty; }
         public string Name { get => String.Empty; }
