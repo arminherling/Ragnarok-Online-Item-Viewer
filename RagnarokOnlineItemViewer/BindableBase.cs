@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace RagnarokOnlineItemViewer
@@ -13,10 +13,8 @@ namespace RagnarokOnlineItemViewer
             OnPropertyChanged( propertyName );
         }
 
-        protected virtual void OnPropertyChanged( string propertyName )
-        {
-            PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
-        }
+        protected virtual void OnPropertyChanged( string propertyName ) 
+            => PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
     }

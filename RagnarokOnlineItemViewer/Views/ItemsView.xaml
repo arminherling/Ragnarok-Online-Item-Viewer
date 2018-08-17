@@ -8,12 +8,20 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="LightGreen">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="320"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="2*" MinWidth="400"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="ItemsView"/>
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
+        <DockPanel Margin="10">
+            <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <ListView ItemsSource="{Binding Items}"  SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />
+                        <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Name}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
         <ContentControl Grid.Column="2" Content="{Binding ItemDetailsViewModel}" Background="Beige"/>
     </Grid>
 </UserControl>
