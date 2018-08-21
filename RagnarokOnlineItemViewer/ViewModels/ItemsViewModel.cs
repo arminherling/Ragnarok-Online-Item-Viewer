@@ -1,6 +1,8 @@
-﻿using RagnarokOnlineItemViewer.Models;
+﻿using Newtonsoft.Json;
+using RagnarokOnlineItemViewer.Models;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
+using System.IO;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
@@ -10,10 +12,12 @@ namespace RagnarokOnlineItemViewer.ViewModels
         {
             CurrentDetailsViewModel = new ItemDetailsViewModel();
 
-            Items.Add( new Item( id: "501", name: "Red Potion", description: "description" ) );
-            Items.Add( new Item( id: "502", name: "Orange Potion", description: "description" ) );
-            Items.Add( new Item( id: "503", name: "Yellow Potion", description: "^FF0000[NPC Buyable]^000000\nA potion made from ground Red Herbs that restores ^000088about 45 HP ^000000.\n^ffffff_ ^000000\nWeight:^777777 7 ^000000\nID:^777777 501 ^000000" ) );
-            Items.Add( new Item( id: "504", name: "White Potion", description: "description" ) );
+            //var json = File.ReadAllText( "./Data/items.json" );
+            //var list = JsonConvert.DeserializeObject<List<Item>>( json);
+            //foreach( var i in list )
+            //    Items.Add( i );
+
+            System.Console.WriteLine( Items.Count );
         }
 
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
