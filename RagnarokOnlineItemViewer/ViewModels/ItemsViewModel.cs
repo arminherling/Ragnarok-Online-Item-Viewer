@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RagnarokOnlineItemViewer.Models;
+using RagnarokOnlineItemViewer.Service;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -8,17 +9,19 @@ namespace RagnarokOnlineItemViewer.ViewModels
 {
     public class ItemsViewModel : BindableBase
     {
-        public ItemsViewModel()
+        public ItemsViewModel( IRepository<Item> itemRepository )
         {
+            _itemRepository = itemRepository;
             CurrentDetailsViewModel = new ItemDetailsViewModel();
 
-            //var json = File.ReadAllText( "./Data/items.json" );
-            //var list = JsonConvert.DeserializeObject<List<Item>>( json);
-            //foreach( var i in list )
-            //    Items.Add( i );
-
-            System.Console.WriteLine( Items.Count );
+            var allItems = _itemRepository.All();
+            foreach(var item in allItems )
+            {
+                Items.Add( item );
+            }
         }
+
+        private IRepository<Item> _itemRepository { get; }
 
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
         

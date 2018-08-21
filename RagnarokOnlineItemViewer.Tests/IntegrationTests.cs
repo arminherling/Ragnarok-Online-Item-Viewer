@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using RagnarokOnlineItemViewer.Models;
+using RagnarokOnlineItemViewer.Tests.Fakes;
 using RagnarokOnlineItemViewer.ViewModels;
 
 namespace RagnarokOnlineItemViewer.Tests
@@ -14,7 +15,7 @@ namespace RagnarokOnlineItemViewer.Tests
                 id: "501", 
                 name: "Red Potion", 
                 description: "A potion made from ground Red Herbs that restores about 45 HP." );
-            var itemsViewModel = new ItemsViewModel();
+            var itemsViewModel = new ItemsViewModel(new FakeItemRepository());
 
             itemsViewModel.SelectedItem = expectedItem;
            

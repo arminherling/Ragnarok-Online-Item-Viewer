@@ -1,10 +1,13 @@
-﻿namespace RagnarokOnlineItemViewer.ViewModels
+﻿using RagnarokOnlineItemViewer.Service;
+
+namespace RagnarokOnlineItemViewer.ViewModels
 {
     class MainWindowViewModel : BindableBase
     {
         public MainWindowViewModel()
         {
-            CurrentViewModel = new ItemsViewModel();
+            var repository = new ItemRepository( "/Data/items.json" );
+            CurrentViewModel = new ItemsViewModel( repository );
         }
 
         private BindableBase _currentViewModel;
