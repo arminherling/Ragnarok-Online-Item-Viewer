@@ -1,14 +1,16 @@
-﻿using Newtonsoft.Json;
-using RagnarokOnlineItemViewer.Models;
+﻿using RagnarokOnlineItemViewer.Models;
 using RagnarokOnlineItemViewer.Service;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
     public class ItemsViewModel : BindableBase
     {
+        private string _searchInput;
+        private Item _selectedItem;
+        private ItemDetailsViewModel _currentDetailsViewModel;
+        private IRepository<Item> _itemRepository { get; }
+
         public ItemsViewModel( IRepository<Item> itemRepository )
         {
             _itemRepository = itemRepository;
@@ -21,18 +23,14 @@ namespace RagnarokOnlineItemViewer.ViewModels
             }
         }
 
-        private IRepository<Item> _itemRepository { get; }
-
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
         
-        private string _searchInput;
         public string SearchInput
         {
             get => _searchInput;
             set => SetPropertyAndRaise( ref _searchInput, value );
         }
 
-        private Item _selectedItem;
         public Item SelectedItem
         {
             get => _selectedItem;
@@ -43,7 +41,6 @@ namespace RagnarokOnlineItemViewer.ViewModels
             }
         }
 
-        private ItemDetailsViewModel _currentDetailsViewModel;
         public ItemDetailsViewModel CurrentDetailsViewModel
         {
             get => _currentDetailsViewModel;

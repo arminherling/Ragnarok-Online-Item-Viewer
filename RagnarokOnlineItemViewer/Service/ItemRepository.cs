@@ -1,5 +1,7 @@
-﻿using RagnarokOnlineItemViewer.Models;
+﻿using Newtonsoft.Json;
+using RagnarokOnlineItemViewer.Models;
 using System.Collections.Generic;
+using System.IO;
 
 namespace RagnarokOnlineItemViewer.Service
 {
@@ -11,7 +13,8 @@ namespace RagnarokOnlineItemViewer.Service
 
         public IEnumerable<Item> All()
         {
-            return new List<Item>();
+            var json = File.ReadAllText( _filePath );
+            return JsonConvert.DeserializeObject<List<Item>>( json );
         }
     }
 }

@@ -8,7 +8,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
         public MainWindowViewModel()
         {
-            var repository = new ItemRepository( "/Data/items.json" );
+            var repository = new ItemRepository( "./Data/items.json" );
             CurrentViewModel = new ItemsViewModel( repository );
         }
 
