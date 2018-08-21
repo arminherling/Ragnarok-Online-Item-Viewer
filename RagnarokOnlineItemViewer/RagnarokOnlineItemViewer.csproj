@@ -71,6 +71,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\ItemDetailsViewModel.cs" />

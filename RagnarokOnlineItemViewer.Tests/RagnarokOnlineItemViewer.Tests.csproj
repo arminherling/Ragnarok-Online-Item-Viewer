@@ -37,6 +37,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="ItemDetailsViewModelTest.cs" />
     <Compile Include="ItemsViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

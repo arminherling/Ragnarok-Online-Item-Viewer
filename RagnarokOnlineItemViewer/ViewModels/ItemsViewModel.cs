@@ -1,10 +1,6 @@
 ﻿using RagnarokOnlineItemViewer.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
@@ -13,15 +9,18 @@ namespace RagnarokOnlineItemViewer.ViewModels
         public ItemsViewModel()
         {
             CurrentDetailsViewModel = new ItemDetailsViewModel();
-            CurrentDetailsViewModel.SetItem( new Item( id: "123", name: "test", description: "description" ) );
 
-            Items.Add( new Item( id: "1", name: "test", description: "description" ) );
-            Items.Add( new Item( id: "2", name: "test", description: "description" ) );
-            Items.Add( new Item( id: "3", name: "test", description: "description" ) );
-            Items.Add( new Item( id: "4", name: "test", description: "description" ) );
+            Items.Add( new Item( id: "501", name: "Red Potion", description: "description" ) );
+            Items.Add( new Item( id: "502", name: "Orange Potion", description: "description" ) );
+            Items.Add( new Item( id: "503", name: "Yellow Potion", description: "description" ) );
+            Items.Add( new Item( id: "504", name: "White Potion", description: "description" ) );
+
+            SelectedItemChangedCommand = new DelegateCommand( UpdateDetails );
         }
 
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
+
+        public DelegateCommand SelectedItemChangedCommand;
 
         private string _searchInput;
         public string SearchInput
@@ -42,6 +41,11 @@ namespace RagnarokOnlineItemViewer.ViewModels
         {
             get => _currentDetailsViewModel;
             set => SetProperty( ref _currentDetailsViewModel, value );
+        }
+
+        private void UpdateDetails()
+        {
+            CurrentDetailsViewModel.SetItem( SelectedItem );
         }
     }
 }

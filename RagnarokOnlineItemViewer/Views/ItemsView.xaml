@@ -22,6 +22,6 @@
                 </ListView.View>
             </ListView>
         </DockPanel>
-        <ContentControl Grid.Column="2" Content="{Binding ItemDetailsViewModel}" Background="Beige"/>
+        <ContentControl Grid.Column="2" Content="{Binding CurrentDetailsViewModel}" Background="Beige"/>
     </Grid>
 </UserControl>
