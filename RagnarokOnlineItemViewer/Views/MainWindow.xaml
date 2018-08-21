@@ -3,12 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RagnarokOnlineItemViewer"
         xmlns:views ="clr-namespace:RagnarokOnlineItemViewer.Views"
         xmlns:viewModels="clr-namespace:RagnarokOnlineItemViewer.ViewModels"
         mc:Ignorable="d"
-        Title="Ragnarok Online Item Viewer" Height="400" Width="800">
-
+        Title="Ragnarok Online Item Viewer" Height="400" Width="600">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:ItemsViewModel}">
             <views:ItemsView/>

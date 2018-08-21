@@ -1,12 +1,6 @@
 ﻿using NUnit.Framework;
 using RagnarokOnlineItemViewer.Models;
 using RagnarokOnlineItemViewer.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace RagnarokOnlineItemViewer.Tests
 {
     [TestFixture]
