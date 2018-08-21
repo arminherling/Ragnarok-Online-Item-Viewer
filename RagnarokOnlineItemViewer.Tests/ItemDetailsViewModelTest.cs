@@ -29,7 +29,7 @@ namespace RagnarokOnlineItemViewer.Tests
         [Test]
         public void IDProperty_ReturnsModelsID_AfterPassingAnItemIntoTheViewModel()
         {
-            var expectedNumber = 123;
+            var expectedNumber = "123";
             var viewModel = new ItemDetailsViewModel();
             viewModel.SetItem( new Item( id: expectedNumber ) );
 

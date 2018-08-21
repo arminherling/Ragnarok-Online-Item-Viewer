@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
-    class ItemsViewModel : BindableBase
+    public class ItemsViewModel : BindableBase
     {
         public ItemsViewModel()
         {
-            ItemDetailsViewModel = new ItemDetailsViewModel();
-            ItemDetailsViewModel.SetItem( new Item( id: 123, name: "test", description: "description" ) );
+            CurrentDetailsViewModel = new ItemDetailsViewModel();
+            CurrentDetailsViewModel.SetItem( new Item( id: "123", name: "test", description: "description" ) );
 
-            Items.Add( new Item( id: 1, name: "test", description: "description" ) );
-            Items.Add( new Item( id: 2, name: "test", description: "description" ) );
-            Items.Add( new Item( id: 3, name: "test", description: "description" ) );
-            Items.Add( new Item( id: 4, name: "test", description: "description" ) );
+            Items.Add( new Item( id: "1", name: "test", description: "description" ) );
+            Items.Add( new Item( id: "2", name: "test", description: "description" ) );
+            Items.Add( new Item( id: "3", name: "test", description: "description" ) );
+            Items.Add( new Item( id: "4", name: "test", description: "description" ) );
         }
 
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
@@ -37,11 +37,11 @@ namespace RagnarokOnlineItemViewer.ViewModels
             set => SetProperty( ref _selectedItem, value );
         }
 
-        private ItemDetailsViewModel _itemDetailsViewModel;
-        public ItemDetailsViewModel ItemDetailsViewModel
+        private ItemDetailsViewModel _currentDetailsViewModel;
+        public ItemDetailsViewModel CurrentDetailsViewModel
         {
-            get => _itemDetailsViewModel;
-            set => SetProperty( ref _itemDetailsViewModel, value );
+            get => _currentDetailsViewModel;
+            set => SetProperty( ref _currentDetailsViewModel, value );
         }
     }
 }
