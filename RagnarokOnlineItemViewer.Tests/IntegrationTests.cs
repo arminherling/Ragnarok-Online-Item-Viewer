@@ -8,17 +8,6 @@ namespace RagnarokOnlineItemViewer.Tests
     class IntegrationTests
     {
         [Test]
-        public void CurrentDetailsView_ReturnsItemsDetailsView_AfterCreatingNewItemsViewModel()
-        {
-            var itemsViewModel = new ItemsViewModel();
-            var expectedType = typeof( ItemDetailsViewModel );
-
-            var currentDetails = itemsViewModel.CurrentDetailsViewModel;
-
-            Assert.IsAssignableFrom( expectedType, currentDetails );
-        }
-
-        [Test]
         public void CurrentDetailsView_ReturnsDetailsOfSelectedItem_AfterInvokingCurrentItemChangedCommand()
         {
             var expectedItem = new Item( 
