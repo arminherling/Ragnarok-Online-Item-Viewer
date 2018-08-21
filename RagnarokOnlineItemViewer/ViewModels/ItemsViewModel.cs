@@ -12,7 +12,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
             Items.Add( new Item( id: "501", name: "Red Potion", description: "description" ) );
             Items.Add( new Item( id: "502", name: "Orange Potion", description: "description" ) );
-            Items.Add( new Item( id: "503", name: "Yellow Potion", description: "description" ) );
+            Items.Add( new Item( id: "503", name: "Yellow Potion", description: "long description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\nlong description\n" ) );
             Items.Add( new Item( id: "504", name: "White Potion", description: "description" ) );
 
             SelectedItemChangedCommand = new DelegateCommand( UpdateDetails );

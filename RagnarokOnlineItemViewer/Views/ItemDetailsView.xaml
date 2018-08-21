@@ -5,14 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Margin="10" Background="Beige">
-        <DockPanel>
-            <TextBlock Text="ID:"/>
-            <TextBox Text="{Binding ID, Mode=OneWay}"/>
-            <TextBlock Text="Name:"/>
-            <TextBox Text="{Binding Name, Mode=OneWay}"/>
+    <DockPanel Margin="10" Background="Beige">
+        <DockPanel DockPanel.Dock="Top">
+            <TextBlock Margin="10"  Text="ID:"/>
+            <TextBox Margin="0,10,0,7" Text="{Binding ID, Mode=OneWay}" MinWidth="40" IsReadOnly="True"/>
+            <TextBlock Margin="10" Text="Name:"/>
+            <TextBox Margin="0,10,10,7" Text="{Binding Name, Mode=OneWay}" IsReadOnly="True"/>
         </DockPanel>
-        <TextBlock Text="Description:"/>
-        <TextBox Text="{Binding Description, Mode=OneWay}"/>
-    </StackPanel>
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Top" Margin="10,0,0,7" Text="Description:"/>
+            <TextBox Margin="10,0,10,10" Text="{Binding Description, Mode=OneWay}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+        </DockPanel>
+    </DockPanel>
 </UserControl>
