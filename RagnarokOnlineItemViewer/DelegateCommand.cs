@@ -19,6 +19,8 @@ namespace RagnarokOnlineItemViewer
             _targetCanExecuteMethod = canExecuteMethod;
         }
 
+        public event EventHandler CanExecuteChanged = delegate { };
+
         public void RaiseCanExecuteChanged() => CanExecuteChanged( this, EventArgs.Empty );
 
         public bool CanExecute( object parameter )
@@ -30,8 +32,6 @@ namespace RagnarokOnlineItemViewer
 
             return _targetExecuteMethod != null;
         }
-
-        public event EventHandler CanExecuteChanged = delegate { };
 
         public void Execute( object parameter ) => _targetExecuteMethod?.Invoke();
     }

@@ -5,9 +5,11 @@ namespace RagnarokOnlineItemViewer
 {
     public class BindableBase : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
         protected virtual void SetPropertyAndRaise<T>( ref T member, T value, [CallerMemberName] string propertyName = null )
         {
-            if( object.Equals( member, value ) ) return;
+            if( Equals( member, value ) ) return;
 
             member = value;
             OnPropertyChanged( propertyName );
@@ -15,7 +17,5 @@ namespace RagnarokOnlineItemViewer
 
         protected virtual void OnPropertyChanged( string propertyName ) 
             => PropertyChanged( this, new PropertyChangedEventArgs( propertyName ) );
-
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
     }
 }
