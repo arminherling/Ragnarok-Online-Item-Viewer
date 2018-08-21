@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:views="clr-namespace:RagnarokOnlineItemViewer.Views"
+             xmlns:ie="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="LightGreen">
@@ -13,7 +14,12 @@
         </Grid.ColumnDefinitions>
         <DockPanel Margin="10">
             <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            <ListView ItemsSource="{Binding Items}"  SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
+            <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="SelectionChanged">
+                        <ie:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}" />
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />

@@ -20,7 +20,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 
-        public DelegateCommand SelectedItemChangedCommand;
+        public ICommand SelectedItemChangedCommand { get; }
 
         private string _searchInput;
         public string SearchInput
