@@ -19,6 +19,9 @@
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="F:\Bilder\homun2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>-->
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

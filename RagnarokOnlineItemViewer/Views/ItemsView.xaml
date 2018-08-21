@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
-    <DockPanel Background="LightGreen">
+    <DockPanel>
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
@@ -15,6 +15,9 @@
                         <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Name}" />
                     </GridView>
                 </ListView.View>
+                <ListView.Background>
+                    <SolidColorBrush Color="White" Opacity="0.5"/>
+                </ListView.Background>
             </ListView>
         </DockPanel>
         <ContentControl DockPanel.Dock="Right" Content="{Binding CurrentDetailsViewModel}" Background="Beige"/>
