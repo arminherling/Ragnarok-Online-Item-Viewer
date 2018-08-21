@@ -5,7 +5,7 @@ namespace RagnarokOnlineItemViewer
 {
     public class BindableBase : INotifyPropertyChanged
     {
-        protected virtual void SetProperty<T>( ref T member, T value, [CallerMemberName] string propertyName = null )
+        protected virtual void SetPropertyAndRaise<T>( ref T member, T value, [CallerMemberName] string propertyName = null )
         {
             if( object.Equals( member, value ) ) return;
 

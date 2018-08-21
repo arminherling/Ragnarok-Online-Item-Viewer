@@ -11,7 +11,7 @@
         public BindableBase CurrentViewModel
         {
             get => _currentViewModel;
-            set => SetProperty( ref _currentViewModel, value );
+            set => SetPropertyAndRaise( ref _currentViewModel, value );
         }
     }
 }
