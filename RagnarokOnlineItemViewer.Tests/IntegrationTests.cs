@@ -9,7 +9,7 @@ namespace RagnarokOnlineItemViewer.Tests
     class IntegrationTests
     {
         [Test]
-        public void CurrentDetailsView_ReturnsDetailsOfSelectedItem_AfterInvokingCurrentItemChangedCommand()
+        public void CurrentDetailsView_ReturnsDetailsOfSelectedItem_AfterSettingNewSelectedItem()
         {
             var expectedItem = new Item( 
                 id: "501", 
