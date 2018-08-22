@@ -12,7 +12,7 @@
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <Grid DockPanel.Dock="Top">
                 <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                <TextBlock Margin="10,0,10,10" VerticalAlignment="Center" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchInput.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <TextBlock Margin="7,0,10,10" VerticalAlignment="Center" Foreground="Gray" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchInput.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
             </Grid>
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
