@@ -9,6 +9,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
         public MainWindowViewModel()
         {
             var repository = new ItemRepository( "./Data/items.json" );
+            BackgroundImage = "./Data/background.jpg";
             CurrentViewModel = new ItemsViewModel( repository );
         }
 
@@ -17,5 +18,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
             get => _currentViewModel;
             set => SetPropertyAndRaise( ref _currentViewModel, value );
         }
+
+        public string BackgroundImage { get; }
     }
 }
