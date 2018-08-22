@@ -26,7 +26,10 @@
                 </ListView.Background>
                 <ListView.Resources>
                     <Style TargetType="GridViewColumnHeader">
-                        <Setter Property="Opacity" Value="0.75" />
+                        <Setter Property="Opacity" Value="0.75"/>
+                    </Style>
+                    <Style TargetType="ScrollBar">
+                        <Setter Property="Opacity" Value="0.75"/>
                     </Style>
                 </ListView.Resources>
             </ListView>
