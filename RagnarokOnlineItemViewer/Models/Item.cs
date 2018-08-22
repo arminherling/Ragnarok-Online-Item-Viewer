@@ -15,8 +15,8 @@ namespace RagnarokOnlineItemViewer.Models
             Description = description;
         }
 
-        public string ID { get; private set; }
-        public string Name { get; private set; }
-        public string Description { get; private set; }
+        public string ID { get;  }
+        public string Name { get; }
+        public string Description { get;}
     }
 }

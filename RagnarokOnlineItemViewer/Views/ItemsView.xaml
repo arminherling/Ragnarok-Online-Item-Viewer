@@ -8,7 +8,7 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-            <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single">
+            <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />

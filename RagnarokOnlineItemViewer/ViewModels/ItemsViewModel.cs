@@ -1,34 +1,41 @@
 ﻿using RagnarokOnlineItemViewer.Models;
 using RagnarokOnlineItemViewer.Service;
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
     public class ItemsViewModel : BindableBase
     {
+        private ObservableCollection<Item> _itemCollection = new ObservableCollection<Item>();
+        private CollectionViewSource _itemViewSource = new CollectionViewSource();
+        private ItemDetailsViewModel _currentDetailsViewModel = new ItemDetailsViewModel();
+        private IRepository<Item> _itemRepository;
         private string _searchInput;
         private Item _selectedItem;
-        private ItemDetailsViewModel _currentDetailsViewModel;
-        private IRepository<Item> _itemRepository { get; }
 
         public ItemsViewModel( IRepository<Item> itemRepository )
         {
             _itemRepository = itemRepository;
-            CurrentDetailsViewModel = new ItemDetailsViewModel();
+            _itemViewSource.Source = _itemCollection;
+            _itemViewSource.Filter += ApplyItemFilter;
 
-            var allItems = _itemRepository.All();
-            foreach(var item in allItems )
-            {
-                Items.Add( item );
-            }
+            foreach( var item in _itemRepository.All() )
+                _itemCollection.Add( item );
         }
 
-        public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
-        
+        public ICollectionView Items => _itemViewSource.View;
+
         public string SearchInput
         {
             get => _searchInput;
-            set => SetPropertyAndRaise( ref _searchInput, value );
+            set
+            {
+                SetPropertyAndRaise( ref _searchInput, value );
+                UpdateListViewFilter();
+            }
         }
 
         public Item SelectedItem
@@ -47,9 +54,22 @@ namespace RagnarokOnlineItemViewer.ViewModels
             set => SetPropertyAndRaise( ref _currentDetailsViewModel, value );
         }
 
-        private void UpdateDetailsViewModel()
+        private void ApplyItemFilter( object sender, FilterEventArgs e )
         {
-            CurrentDetailsViewModel.SetItem( SelectedItem );
+            Item item = (Item)e.Item;
+            if( string.IsNullOrWhiteSpace( SearchInput ) || SearchInput.Length == 0 )
+            {
+                e.Accepted = true;
+            }
+            else
+            {
+                e.Accepted = item.ID.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
+                    || item.Name.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0;
+            }
         }
+
+        private void UpdateListViewFilter() => Items.Refresh();
+
+        private void UpdateDetailsViewModel() => CurrentDetailsViewModel.SetItem( SelectedItem );
     }
 }

@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
+using RagnarokOnlineItemViewer.Models;
 using RagnarokOnlineItemViewer.Tests.Fakes;
 using RagnarokOnlineItemViewer.ViewModels;
+using System.Linq;
 
 namespace RagnarokOnlineItemViewer.Tests
 {
@@ -16,6 +18,42 @@ namespace RagnarokOnlineItemViewer.Tests
             var currentDetails = itemsViewModel.CurrentDetailsViewModel;
 
             Assert.IsAssignableFrom( expectedType, currentDetails );
+        }
+
+        [Test]
+        public void AllItems_ReturnsFilteredItemView_AfterSettingFilterWithIdString()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( "501", "Red Potion") );
+            fakeRepo.AddFake( new Item( "502", "Orange Potion") );
+            fakeRepo.AddFake( new Item( "503", "Yellow Potion") );
+            fakeRepo.AddFake( new Item( "511", "Green Herb" ) );
+            fakeRepo.AddFake( new Item( "512", "Apple") );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+            var expectedCount = 3;
+            itemsViewModel.SearchInput = "50";
+
+            var filteredItemsCount = itemsViewModel.Items.Cast<object>().Count();
+
+            Assert.AreEqual( expectedCount, filteredItemsCount );
+        }
+
+        [Test]
+        public void AllItems_ReturnsFilteredItemView_AfterSettingFilterWithNameString()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
+            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
+            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+            var expectedCount = 2;
+            itemsViewModel.SearchInput = "Red";
+
+            var filteredItemsCount = itemsViewModel.Items.Cast<object>().Count();
+
+            Assert.AreEqual( expectedCount, filteredItemsCount );
         }
     }
 }
