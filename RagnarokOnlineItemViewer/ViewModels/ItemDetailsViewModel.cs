@@ -9,6 +9,9 @@ namespace RagnarokOnlineItemViewer.ViewModels
  
         public void SetItem( Item item )
         {
+            if( item == null )
+                return;
+
             _item = item;
             OnPropertyChanged( nameof( ID ) );
             OnPropertyChanged( nameof( Name ) );
