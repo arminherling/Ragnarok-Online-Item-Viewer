@@ -5,9 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
     <DockPanel>
         <DockPanel DockPanel.Dock="Left" Margin="10">
+            <Grid DockPanel.Dock="Top">
+                
             <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Margin="10,0,10,10" VerticalAlignment="Center" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchInput.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+            </Grid>
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
                     <GridView>
