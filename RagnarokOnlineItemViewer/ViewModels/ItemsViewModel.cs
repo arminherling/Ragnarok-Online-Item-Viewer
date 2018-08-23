@@ -26,6 +26,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
                 _itemCollection.Add( item );
         }
 
+        public int ItemCount => _itemCollection.Count;
+
         public ICollectionView Items => _itemViewSource.View;
 
         public string SearchInput

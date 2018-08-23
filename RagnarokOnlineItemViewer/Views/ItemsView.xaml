@@ -9,6 +9,10 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </UserControl.Resources>
     <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
+            <TextBlock>Item Count: </TextBlock>
+            <TextBlock Text="{Binding ItemCount}"/>
+        </StatusBar>
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <Grid DockPanel.Dock="Top">
                 <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" Opacity="0.75"></TextBox>
