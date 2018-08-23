@@ -11,7 +11,10 @@
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
             <TextBlock>Item Count: </TextBlock>
-            <TextBlock Text="{Binding ItemCount}"/>
+            <TextBlock Text="{Binding TotalItemCount}"/>
+            <Separator/>
+            <TextBlock>Found Items:</TextBlock>
+            <TextBlock Text="{Binding FilteredItemCount}"/>
         </StatusBar>
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <Grid DockPanel.Dock="Top">

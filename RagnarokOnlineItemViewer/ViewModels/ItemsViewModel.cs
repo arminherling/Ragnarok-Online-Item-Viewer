@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Linq;
 
 namespace RagnarokOnlineItemViewer.ViewModels
 {
@@ -15,6 +16,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
         private IRepository<Item> _itemRepository;
         private string _searchInput;
         private Item _selectedItem;
+        private int _totalItemCount;
+        private int _filteredItemCount;
 
         public ItemsViewModel( IRepository<Item> itemRepository )
         {
@@ -24,12 +27,24 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
             foreach( var item in _itemRepository.All() )
                 _itemCollection.Add( item );
-        }
 
-        public int ItemCount => _itemCollection.Count;
+            TotalItemCount = _itemCollection.Count;
+        }
 
         public ICollectionView Items => _itemViewSource.View;
 
+        public int TotalItemCount
+        {
+            get => _totalItemCount;
+            set => SetPropertyAndRaise( ref _totalItemCount, value );
+        }
+
+        public int FilteredItemCount
+        {
+            get => _filteredItemCount;
+            set => SetPropertyAndRaise( ref _filteredItemCount, value );
+        }
+        
         public string SearchInput
         {
             get => _searchInput;
@@ -70,7 +85,11 @@ namespace RagnarokOnlineItemViewer.ViewModels
             }
         }
 
-        private void UpdateListViewFilter() => Items.Refresh();
+        private void UpdateListViewFilter()
+        {
+            Items.Refresh();
+            FilteredItemCount = Items.Cast<object>().Count();
+        }
 
         private void UpdateDetailsViewModel() => CurrentDetailsViewModel.SetItem( SelectedItem );
     }
