@@ -17,7 +17,7 @@
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />
+                        <GridViewColumn Header="ID" Width="45" DisplayMemberBinding="{Binding ID}" />
                         <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Name}" />
                     </GridView>
                 </ListView.View>
