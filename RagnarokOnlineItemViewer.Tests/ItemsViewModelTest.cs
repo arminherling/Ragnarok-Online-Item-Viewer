@@ -55,5 +55,63 @@ namespace RagnarokOnlineItemViewer.Tests
 
             Assert.AreEqual( expectedCount, filteredItemsCount );
         }
+
+        [Test]
+        public void SearchIsActive_ReturnsTrue_AfterAssigningAStringToSearchInputOnViewModelWithoutItems()
+        {
+            var itemsViewModel = new ItemsViewModel( new FakeItemRepository() );
+            var expected = true;
+
+            itemsViewModel.SearchInput = "123";
+            var actual = itemsViewModel.SearchIsActive;
+
+            Assert.AreEqual( expected, actual );
+        }
+
+        [Test]
+        public void SearchIsActive_ReturnsTrue_AfterAssigningAStringToSearchInputOnViewModelWithItems()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
+            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
+            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+            var expected = true;
+
+            itemsViewModel.SearchInput = "123";
+            var actual = itemsViewModel.SearchIsActive;
+
+            Assert.AreEqual( expected, actual );
+        }
+
+        [Test]
+        public void SearchIsActive_ReturnsFalse_OnViewModelWithoutItemsWithoutAssigningSearchInput()
+        {
+            var itemsViewModel = new ItemsViewModel( new FakeItemRepository() );
+            var expected = false;
+
+            var actual = itemsViewModel.SearchIsActive;
+
+            Assert.AreEqual( expected, actual );
+        }
+
+        [Test]
+        public void SearchIsActive_ReturnsFalse_OnViewModelWithItemsWithoutAssigningSearchInput()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
+            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
+            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+            var expected = false;
+
+            var actual = itemsViewModel.SearchIsActive;
+
+            Assert.AreEqual( expected, actual );
+        }
     }
 }
