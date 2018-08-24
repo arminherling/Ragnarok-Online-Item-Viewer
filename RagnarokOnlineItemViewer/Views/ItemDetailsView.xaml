@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:c="clr-namespace:RagnarokOnlineItemViewer.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel Margin="0,0,10,0">
@@ -22,11 +23,11 @@
         </DockPanel>
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" Margin="10,0,0,7" Text="Description:"/>
-            <TextBox Margin="10,0,10,10" Text="{Binding Description, Mode=OneWay}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True">
-                <TextBox.Background>
+            <c:ColoredRichTextBox Margin="10,0,10,10" Text="{Binding Description, Mode=OneWay}" VerticalScrollBarVisibility="Auto" IsReadOnly="True">
+                <c:ColoredRichTextBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.5"/>
-                </TextBox.Background>
-            </TextBox>
+                </c:ColoredRichTextBox.Background>
+            </c:ColoredRichTextBox>
         </DockPanel>
     </DockPanel>
 </UserControl>

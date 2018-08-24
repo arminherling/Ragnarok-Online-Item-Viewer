@@ -89,6 +89,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Controls\ColoredRichTextBox.cs" />
     <Compile Include="Converters\BooleanToInvisibilityConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Models\Item.cs" />
