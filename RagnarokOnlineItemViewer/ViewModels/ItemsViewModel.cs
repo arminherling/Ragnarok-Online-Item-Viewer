@@ -10,14 +10,14 @@ namespace RagnarokOnlineItemViewer.ViewModels
 {
     public class ItemsViewModel : BindableBase
     {
+        private Item _selectedItem;
+        private string _searchInput;
+        private int _totalItemCount;
+        private int _filteredItemCount;
+        private IRepository<Item> _itemRepository;
         private ObservableCollection<Item> _itemCollection = new ObservableCollection<Item>();
         private CollectionViewSource _itemViewSource = new CollectionViewSource();
         private ItemDetailsViewModel _currentDetailsViewModel = new ItemDetailsViewModel();
-        private IRepository<Item> _itemRepository;
-        private string _searchInput;
-        private Item _selectedItem;
-        private int _totalItemCount;
-        private int _filteredItemCount;
 
         public ItemsViewModel( IRepository<Item> itemRepository )
         {
@@ -33,6 +33,10 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
         public ICollectionView Items => _itemViewSource.View;
 
+        public bool SearchIsActive => !SearchIsNotActive;
+
+        public bool SearchIsNotActive => string.IsNullOrWhiteSpace( SearchInput );
+        
         public int TotalItemCount
         {
             get => _totalItemCount;
@@ -88,6 +92,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
         private void UpdateListViewFilter()
         {
             Items.Refresh();
+            OnPropertyChanged( nameof( SearchIsActive ) );
+            OnPropertyChanged( nameof( SearchIsNotActive ) );
             FilteredItemCount = Items.Cast<object>().Count();
         }
 

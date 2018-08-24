@@ -12,14 +12,14 @@
         <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
             <TextBlock>Item Count: </TextBlock>
             <TextBlock Text="{Binding TotalItemCount}"/>
-            <Separator/>
-            <TextBlock>Found Items:</TextBlock>
-            <TextBlock Text="{Binding FilteredItemCount}"/>
+            <Separator Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToVisibilityConverter}}"> Found Items:</TextBlock>
+            <TextBlock Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding FilteredItemCount}"/>
         </StatusBar>
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <Grid DockPanel.Dock="Top">
                 <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" Opacity="0.75"></TextBox>
-                <TextBlock Margin="7,0,10,10" VerticalAlignment="Center" Foreground="Gray" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchInput.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <TextBlock Margin="7,0,10,10" VerticalAlignment="Center" Foreground="Gray" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchIsNotActive, Converter={StaticResource BooleanToVisibilityConverter}}"/>
             </Grid>
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
