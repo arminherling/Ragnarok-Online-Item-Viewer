@@ -28,7 +28,9 @@ namespace RagnarokOnlineItemViewer.Controls
             richTextBox.Document.Blocks.Add( paragraph );
 
             var text = (string)dependencyPropertyChangedEventArgs.NewValue;
-            paragraph.Inlines.Add( new Run( text ) );
+            var coloredTextSegments = ColoredStringParser.Parse( text );
+            foreach(var segment in coloredTextSegments )
+                paragraph.Inlines.Add( new Run( segment.Item1 ) { Foreground = segment.Item2 } );
         }
     }
 }

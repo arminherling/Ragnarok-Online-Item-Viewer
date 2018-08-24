@@ -5,9 +5,14 @@ namespace RagnarokOnlineItemViewer
 {
     public class ColoredStringParser
     {
-        public static List<(string, Brush)> Parse( string v )
+        public static List<(string, Brush)> Parse( string input )
         {
-            return new List<(string, Brush)>();
+            var result = new List<(string, Brush)>();
+
+            if( !string.IsNullOrWhiteSpace( input ) )
+                result.Add( (input, Brushes.Black) );
+
+            return result;
         }
     }
 }
