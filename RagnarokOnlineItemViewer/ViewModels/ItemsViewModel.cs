@@ -30,7 +30,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
             TotalItemCount = _itemCollection.Count;
 
-            SelectedItem = _itemCollection.First();
+            if( TotalItemCount >= 1 )
+                SelectedItem = _itemCollection.First();
         }
 
         public ICollectionView Items => _itemViewSource.View;
@@ -38,7 +39,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
         public bool SearchIsActive => !SearchIsNotActive;
 
         public bool SearchIsNotActive => string.IsNullOrWhiteSpace( SearchInput );
-        
+
         public int TotalItemCount
         {
             get => _totalItemCount;
@@ -50,7 +51,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
             get => _filteredItemCount;
             set => SetPropertyAndRaise( ref _filteredItemCount, value );
         }
-        
+
         public string SearchInput
         {
             get => _searchInput;
