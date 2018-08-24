@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converter="clr-namespace:RagnarokOnlineItemViewer.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converter:BooleanToInvisibilityConverter x:Key="BooleanToInvisibilityConverter"/>
     </UserControl.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
@@ -19,7 +21,7 @@
         <DockPanel DockPanel.Dock="Left" Margin="10">
             <Grid DockPanel.Dock="Top">
                 <TextBox Margin="0,0,0,10" DockPanel.Dock="Top" Text="{Binding SearchInput, UpdateSourceTrigger=PropertyChanged}" Opacity="0.75"></TextBox>
-                <TextBlock Margin="7,0,10,10" VerticalAlignment="Center" Foreground="Gray" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchIsNotActive, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <TextBlock Margin="7,0,10,10" VerticalAlignment="Center" Foreground="Gray" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToInvisibilityConverter}}"/>
             </Grid>
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>

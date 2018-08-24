@@ -36,9 +36,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
         public ICollectionView Items => _itemViewSource.View;
 
-        public bool SearchIsActive => !SearchIsNotActive;
-
-        public bool SearchIsNotActive => string.IsNullOrWhiteSpace( SearchInput );
+        public bool SearchIsActive => !string.IsNullOrWhiteSpace( SearchInput );
 
         public int TotalItemCount
         {
@@ -96,7 +94,6 @@ namespace RagnarokOnlineItemViewer.ViewModels
         {
             Items.Refresh();
             OnPropertyChanged( nameof( SearchIsActive ) );
-            OnPropertyChanged( nameof( SearchIsNotActive ) );
             FilteredItemCount = Items.Cast<object>().Count();
         }
 

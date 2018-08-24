@@ -4,7 +4,7 @@ using RagnarokOnlineItemViewer.ViewModels;
 namespace RagnarokOnlineItemViewer.Tests
 {
     [TestFixture]
-    public class ItemDetailsViewModelTest
+    public class ItemDetailsViewModelTests
     {
         [Test]
         public void AllProperties_ReturnEmptyStrings_BeforePassingAnItemIntoTheViewModel()

@@ -89,10 +89,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="Converters\BooleanToInvisibilityConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Service\IRepository.cs" />
-    <Compile Include="Service\ItemRepository.cs" />
+    <Compile Include="Services\IRepository.cs" />
+    <Compile Include="Services\ItemRepository.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\ItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

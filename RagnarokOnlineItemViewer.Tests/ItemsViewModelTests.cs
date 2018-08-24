@@ -7,7 +7,7 @@ using System.Linq;
 namespace RagnarokOnlineItemViewer.Tests
 {
     [TestFixture]
-    class ItemsViewModelTest
+    class ItemsViewModelTests
     {
         [Test]
         public void CurrentDetailsView_ReturnsItemsDetailsView_AfterCreatingNewItemsViewModel()
