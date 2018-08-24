@@ -29,6 +29,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
                 _itemCollection.Add( item );
 
             TotalItemCount = _itemCollection.Count;
+
+            SelectedItem = _itemCollection.First();
         }
 
         public ICollectionView Items => _itemViewSource.View;
