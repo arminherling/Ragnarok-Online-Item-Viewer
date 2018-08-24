@@ -57,6 +57,9 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,6 +96,7 @@
     <Compile Include="Converters\BooleanToInvisibilityConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="ColoredStringParser.cs" />
     <Compile Include="Services\IRepository.cs" />
     <Compile Include="Services\ItemRepository.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
