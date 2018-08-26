@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace RagnarokOnlineItemViewer.Tests
@@ -14,7 +10,7 @@ namespace RagnarokOnlineItemViewer.Tests
         [Test]
         public void Parse_ReturnsEmptyList_OnEmptyString()
         {
-            var expected = new List<(string, Brush)>();
+            var expected = new List<ColoredStringSegment>();
 
             var actual = ColoredStringParser.Parse( "" );
 
@@ -31,8 +27,8 @@ namespace RagnarokOnlineItemViewer.Tests
             var result = ColoredStringParser.Parse( input );
 
             Assert.AreEqual( expectedCount, result.Count );
-            Assert.AreEqual( input, result[0].Item1 );
-            Assert.AreEqual( expectedBrush, result[0].Item2 );
+            Assert.AreEqual( input, result[0].Text );
+            Assert.AreEqual( expectedBrush, result[0].Color );
         }
 
         [Test]
@@ -46,8 +42,8 @@ namespace RagnarokOnlineItemViewer.Tests
             var result = ColoredStringParser.Parse( input );
 
             Assert.AreEqual( expectedCount, result.Count );
-            Assert.AreEqual( expectedText, result[0].Item1 );
-            Assert.AreEqual( expectedBrush.ToString(), result[0].Item2.ToString() );
+            Assert.AreEqual( expectedText, result[0].Text );
+            Assert.AreEqual( expectedBrush.ToString(), result[0].Color.ToString() );
         }
 
         [Test]
@@ -63,10 +59,10 @@ namespace RagnarokOnlineItemViewer.Tests
             var result = ColoredStringParser.Parse( input );
 
             Assert.AreEqual( expectedCount, result.Count );
-            Assert.AreEqual( expectedText1, result[0].Item1 );
-            Assert.AreEqual( expectedBrush1.ToString(), result[0].Item2.ToString() );
-            Assert.AreEqual( expectedText2, result[1].Item1 );
-            Assert.AreEqual( expectedBrush2.ToString(), result[1].Item2.ToString() );
+            Assert.AreEqual( expectedText1, result[0].Text );
+            Assert.AreEqual( expectedBrush1.ToString(), result[0].Color.ToString() );
+            Assert.AreEqual( expectedText2, result[1].Text );
+            Assert.AreEqual( expectedBrush2.ToString(), result[1].Color.ToString() );
         }
 
         [Test]
@@ -82,10 +78,10 @@ namespace RagnarokOnlineItemViewer.Tests
             var result = ColoredStringParser.Parse( input );
 
             Assert.AreEqual( expectedCount, result.Count );
-            Assert.AreEqual( expectedText1, result[0].Item1 );
-            Assert.AreEqual( expectedBrush1.ToString(), result[0].Item2.ToString() );
-            Assert.AreEqual( expectedText2, result[1].Item1 );
-            Assert.AreEqual( expectedBrush2.ToString(), result[1].Item2.ToString() );
+            Assert.AreEqual( expectedText1, result[0].Text );
+            Assert.AreEqual( expectedBrush1.ToString(), result[0].Color.ToString() );
+            Assert.AreEqual( expectedText2, result[1].Text );
+            Assert.AreEqual( expectedBrush2.ToString(), result[1].Color.ToString() );
         }
     }
 }

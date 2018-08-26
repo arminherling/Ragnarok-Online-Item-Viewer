@@ -30,7 +30,7 @@ namespace RagnarokOnlineItemViewer.Controls
             var text = (string)dependencyPropertyChangedEventArgs.NewValue;
             var coloredTextSegments = ColoredStringParser.Parse( text );
             foreach(var segment in coloredTextSegments )
-                paragraph.Inlines.Add( new Run( segment.Item1 ) { Foreground = segment.Item2 } );
+                paragraph.Inlines.Add( new Run( segment.Text ) { Foreground = segment.Color } );
         }
     }
 }

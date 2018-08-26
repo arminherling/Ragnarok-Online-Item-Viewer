@@ -10,9 +10,9 @@ namespace RagnarokOnlineItemViewer
         private static readonly RegexOptions _options = RegexOptions.IgnoreCase;
         private static BrushConverter _converter = new BrushConverter();
 
-        public static List<(string, Brush)> Parse( string input )
+        public static List<ColoredStringSegment> Parse( string input )
         {
-            var result = new List<(string, Brush)>();
+            var result = new List<ColoredStringSegment>();
 
             if( !string.IsNullOrWhiteSpace( input ) )
             {
@@ -25,7 +25,7 @@ namespace RagnarokOnlineItemViewer
                     // first match isn't at the start of the input, so we need 
                     // to add the text before that as result with the default color
                     if( substringStart == -1 && m.Index != 0 )
-                        result.Add( (input.Substring( 0, m.Index ), Brushes.Black) );
+                        result.Add( new ColoredStringSegment( input.Substring( 0, m.Index ), Brushes.Black ) );
 
                     substringStart = m.Index + m.Length;
                     if( m.NextMatch().Success )
@@ -40,11 +40,11 @@ namespace RagnarokOnlineItemViewer
 
                     var hex = m.Value.Replace( '^', '#' );
                     var brush = (Brush)_converter.ConvertFromString( hex );
-                    result.Add( (input.Substring( substringStart, substringEnd - substringStart ), brush) );
+                    result.Add( new ColoredStringSegment( input.Substring( substringStart, substringEnd - substringStart ), brush ) );
                 }
 
                 if( matches.Count == 0 )
-                    result.Add( (input, Brushes.Black) );
+                    result.Add( new ColoredStringSegment( input, Brushes.Black ) );
             }
 
             return result;
