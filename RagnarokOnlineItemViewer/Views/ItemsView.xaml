@@ -9,6 +9,7 @@
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <converter:BooleanToInvisibilityConverter x:Key="BooleanToInvisibilityConverter"/>
+        <converter:IdToIconConverter x:Key="IdToIconConverter"/>
     </UserControl.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
@@ -30,7 +31,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="{Binding ID}" Width="20"/>
+                                        <Image Source="{Binding ID, Converter={StaticResource IdToIconConverter}, Mode=OneWay}" Width="20"/>
                                         <TextBlock Text="{Binding ID}" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </DataTemplate>

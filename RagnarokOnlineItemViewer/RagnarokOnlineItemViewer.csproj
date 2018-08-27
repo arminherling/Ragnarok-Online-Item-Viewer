@@ -92,6 +92,7 @@
     <Compile Include="ColoredStringSegment.cs" />
     <Compile Include="Controls\ColoredRichTextBox.cs" />
     <Compile Include="Converters\BooleanToInvisibilityConverter.cs" />
+    <Compile Include="Converters\IdToIconConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="ColoredStringParser.cs" />
@@ -160,6 +161,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="7897.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\unknown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
