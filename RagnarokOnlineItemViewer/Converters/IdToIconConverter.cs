@@ -11,7 +11,7 @@ namespace RagnarokOnlineItemViewer.Converters
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {
             var directoryPath = Path.GetDirectoryName( Process.GetCurrentProcess().MainModule.FileName );
-            var iconPath = Path.Combine( directoryPath, $"Data\\{value}.gif" );
+            var iconPath = Path.Combine( directoryPath, String.Format( (string)parameter, value ) );
             if( File.Exists( iconPath ) )
                 return iconPath;
 
