@@ -43,6 +43,7 @@
     <Compile Include="ColoredStringParserTests.cs" />
     <Compile Include="Fakes\FakeItemRepository.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IdToIconConverterTests.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="ItemDetailsViewModelTests.cs" />
     <Compile Include="ItemsViewModelTests.cs" />
