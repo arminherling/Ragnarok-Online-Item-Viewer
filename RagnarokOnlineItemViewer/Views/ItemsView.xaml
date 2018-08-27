@@ -12,7 +12,7 @@
     </UserControl.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
-            <TextBlock>Item Count: </TextBlock>
+            <TextBlock>Item Count:</TextBlock>
             <TextBlock Text="{Binding TotalItemCount}"/>
             <Separator Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToVisibilityConverter}}"/>
             <TextBlock Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToVisibilityConverter}}"> Found Items:</TextBlock>
@@ -26,7 +26,16 @@
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="45" DisplayMemberBinding="{Binding ID}" />
+                        <GridViewColumn Header="ID" Width="65">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding ID}" Width="20"/>
+                                        <TextBlock Text="{Binding ID}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                         <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Name}" />
                     </GridView>
                 </ListView.View>
