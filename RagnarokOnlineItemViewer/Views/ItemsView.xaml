@@ -10,6 +10,7 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <converter:BooleanToInvisibilityConverter x:Key="BooleanToInvisibilityConverter"/>
         <converter:IdToIconConverter x:Key="IdToIconConverter"/>
+        <BitmapImage UriSource='/RagnarokOnlineItemViewer;component/Data/unknown.png' x:Key="DefaultIcon"/>
     </UserControl.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" Opacity="0.75">
@@ -31,7 +32,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="{Binding ID, Converter={StaticResource IdToIconConverter}, ConverterParameter='Data&#092;&#092;&#123;0&#125;.gif', Mode=OneWay}" Width="20"/>
+                                        <Image Source="{Binding ID, TargetNullValue='{StaticResource DefaultIcon}', Converter={StaticResource IdToIconConverter}, ConverterParameter='Data|.gif', Mode=OneWay}" Width="20"/>
                                         <TextBlock Text="{Binding ID}" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </DataTemplate>

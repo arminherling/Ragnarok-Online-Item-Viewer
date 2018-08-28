@@ -11,9 +11,10 @@ namespace RagnarokOnlineItemViewer.Converters
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {
             var directoryPath = Path.GetDirectoryName( Process.GetCurrentProcess().MainModule.FileName );
-            var iconPath = Path.Combine( directoryPath, String.Format( (string)parameter, value ) );
+            var split = ( parameter as string ).Split( '|' );
+            var iconPath = Path.Combine( directoryPath, split[0], (string)value + split[1] );
             if( !File.Exists( iconPath ) )
-                iconPath = Path.Combine( directoryPath, "Data\\unknown.png" );
+                iconPath = null;
 
             return iconPath;
         }

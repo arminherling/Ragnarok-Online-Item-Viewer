@@ -6,13 +6,19 @@ namespace RagnarokOnlineItemViewer.Tests
     public class IdToIconConverterTests
     {
         [Test]
-        public void IdToIconConverter_ReturnsIconForId_OnIdWithIconImage()
+        public void IdToIconConverter_ReturnsIconForId_OnIdWithIconImageAndValidParameter()
         {
             Assert.Fail();
         }
 
         [Test]
-        public void IdToIconConverter_ReturnsDefaultIcon_OnIdWithoutIconImage()
+        public void IdToIconConverter_ReturnsIconForId_OnIdWithIconImageButInvalidParameter()
+        {
+            Assert.Fail();
+        }
+
+        [Test]
+        public void IdToIconConverter_ReturnsNull_OnIdWithoutIconImage()
         {
             Assert.Fail();
         }
