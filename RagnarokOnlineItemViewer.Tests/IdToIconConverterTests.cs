@@ -32,13 +32,11 @@ namespace RagnarokOnlineItemViewer.Tests
         }
 
         [Test]
-        public void IdToIconConverter_ReturnsNull_OnIdWithIconImageButNullParameter()
+        public void IdToIconConverter_ReturnsException_OnIdWithIconImageButNullParameter()
         {
             var converter = new IdToIconConverter();
 
-            var result = converter.Convert( "501", null, null, null );
-
-            Assert.IsNull( result );
+            Assert.Throws<ArgumentNullException>( () => { converter.Convert( "501", null, null, null ); } );
         }
 
         [Test]

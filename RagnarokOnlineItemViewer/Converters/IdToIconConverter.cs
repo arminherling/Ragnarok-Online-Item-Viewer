@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Windows.Data;
@@ -11,7 +10,7 @@ namespace RagnarokOnlineItemViewer.Converters
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {
             if( parameter == null )
-                return null;
+                throw new ArgumentNullException(nameof(parameter));
 
             var directoryPath = AppDomain.CurrentDomain.BaseDirectory;
             var split = ( parameter as string ).Split( '|' );
