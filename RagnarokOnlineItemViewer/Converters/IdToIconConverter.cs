@@ -10,6 +10,9 @@ namespace RagnarokOnlineItemViewer.Converters
     {
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {
+            if( parameter == null )
+                return null;
+
             var directoryPath = AppDomain.CurrentDomain.BaseDirectory;
             var split = ( parameter as string ).Split( '|' );
             var iconPath = Path.Combine( directoryPath, split[0], (string)value + split[1] );
