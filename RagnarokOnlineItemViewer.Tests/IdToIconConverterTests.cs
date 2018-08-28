@@ -34,7 +34,11 @@ namespace RagnarokOnlineItemViewer.Tests
         [Test]
         public void IdToIconConverter_ReturnsNull_OnIdWithoutIconImage()
         {
-            Assert.Fail();
+            var converter = new IdToIconConverter();
+
+            var result = converter.Convert( "123456", null, "Data|.gif", null );
+
+            Assert.IsNull( result );
         }
 
         [Test]
