@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using RagnarokOnlineItemViewer.Converters;
+using System;
 
 namespace RagnarokOnlineItemViewer.Tests
 {
@@ -8,7 +10,15 @@ namespace RagnarokOnlineItemViewer.Tests
         [Test]
         public void IdToIconConverter_ReturnsIconForId_OnIdWithIconImageAndValidParameter()
         {
-            Assert.Fail();
+            var converter = new IdToIconConverter();
+            var expected1 = "\\Data\\501.gif";
+            var expected2 = "\\Data\\7897.gif";
+
+            var actualPath1 = (string)converter.Convert( "501", null, "Data|.gif", null );
+            var actualPath2 = (string)converter.Convert( "7897", null, "Data|.gif", null );
+
+            Assert.IsTrue( actualPath1.EndsWith(expected1) );
+            Assert.IsTrue( actualPath2.EndsWith(expected2) );
         }
 
         [Test]
