@@ -46,7 +46,9 @@ namespace RagnarokOnlineItemViewer.Tests
         {
             var converter = new IdToIconConverter();
 
-            Assert.Throws<ArgumentNullException>( () => { converter.Convert( "501", null, null, null ); } );
+            TestDelegate throwingMethod = () => { converter.Convert( "501", null, null, null ); };
+
+            Assert.Throws<ArgumentNullException>( throwingMethod );
         }
 
         [Test]
@@ -54,7 +56,9 @@ namespace RagnarokOnlineItemViewer.Tests
         {
             var converter = new IdToIconConverter();
 
-            Assert.Throws<ArgumentNullException>( () => { converter.Convert( null, null, "Data|.gif", null ); } );
+            TestDelegate throwingMethod = () => { converter.Convert( null, null, "Data|.gif", null ); };
+
+            Assert.Throws<ArgumentNullException>( throwingMethod );
         }
     }
 }

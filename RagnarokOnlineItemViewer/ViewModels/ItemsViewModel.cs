@@ -78,13 +78,13 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
         private void ApplyItemFilter( object sender, FilterEventArgs e )
         {
-            Item item = (Item)e.Item;
             if( string.IsNullOrWhiteSpace( SearchInput ) || SearchInput.Length == 0 )
             {
                 e.Accepted = true;
             }
             else
             {
+                var item = (Item)e.Item;
                 e.Accepted = item.ID.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
                     || item.Name.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0;
             }
