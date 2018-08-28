@@ -9,15 +9,18 @@ namespace RagnarokOnlineItemViewer.Converters
     {
         public object Convert( object value, Type targetType, object parameter, CultureInfo culture )
         {
+            if( value == null )
+                throw new ArgumentNullException( nameof( value ) );
+
             if( parameter == null )
-                throw new ArgumentNullException(nameof(parameter));
+                throw new ArgumentNullException( nameof( parameter ) );
 
             var directoryPath = AppDomain.CurrentDomain.BaseDirectory;
             var split = ( parameter as string ).Split( '|' );
             var iconPath = Path.Combine( directoryPath, split[0], (string)value + split[1] );
             if( !File.Exists( iconPath ) )
                 iconPath = null;
-            
+
             return iconPath;
         }
 

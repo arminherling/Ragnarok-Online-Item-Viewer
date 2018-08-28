@@ -32,14 +32,6 @@ namespace RagnarokOnlineItemViewer.Tests
         }
 
         [Test]
-        public void IdToIconConverter_ReturnsException_OnIdWithIconImageButNullParameter()
-        {
-            var converter = new IdToIconConverter();
-
-            Assert.Throws<ArgumentNullException>( () => { converter.Convert( "501", null, null, null ); } );
-        }
-
-        [Test]
         public void IdToIconConverter_ReturnsNull_OnIdWithoutIconImage()
         {
             var converter = new IdToIconConverter();
@@ -50,15 +42,19 @@ namespace RagnarokOnlineItemViewer.Tests
         }
 
         [Test]
-        public void IdToIconConverter_ThrowsException_OnEmptyParameter()
+        public void IdToIconConverter_ThrowsException_OnIdWithIconImageButNullParameter()
         {
-            Assert.Fail();
+            var converter = new IdToIconConverter();
+
+            Assert.Throws<ArgumentNullException>( () => { converter.Convert( "501", null, null, null ); } );
         }
 
         [Test]
-        public void IdToIconConverter_ThrowsException_OnInvalidParameter()
+        public void IdToIconConverter_ThrowsException_OnNullValue()
         {
-            Assert.Fail();
+            var converter = new IdToIconConverter();
+
+            Assert.Throws<ArgumentNullException>( () => { converter.Convert( null, null, "Data|.gif", null ); } );
         }
     }
 }
