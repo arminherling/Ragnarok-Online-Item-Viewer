@@ -9,7 +9,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
         public MainWindowViewModel()
         {
             var repository = new ItemRepository( "./Data/items.json" );
-            BackgroundImage = "./Data/background.jpg";
+            BackgroundImage = "./Data/Background.jpg";
             CurrentViewModel = new ItemsViewModel( repository );
         }
 
