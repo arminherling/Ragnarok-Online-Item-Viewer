@@ -22,6 +22,17 @@ namespace RagnarokOnlineItemViewer.Tests
         }
 
         [Test]
+        public void IdToIconConverter_ReturnsIconForId_OnIdWithIconImageAndValidParameterAndSubfolder()
+        {
+            var converter = new IdToIconConverter();
+            var expected = "\\Data\\Subfolder\\501.gif";
+
+            var actualPath = (string)converter.Convert( "501", null, "Data\\Subfolder|.gif", null );
+
+            Assert.IsTrue( actualPath.EndsWith( expected ) );
+        }
+
+        [Test]
         public void IdToIconConverter_ReturnsNull_OnIdWithIconImageButInvalidParameter()
         {
             var converter = new IdToIconConverter();
