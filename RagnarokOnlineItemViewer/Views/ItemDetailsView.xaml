@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:c="clr-namespace:RagnarokOnlineItemViewer.Controls"
+             xmlns:converter="clr-namespace:RagnarokOnlineItemViewer.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converter:IdToIconConverter x:Key="IdToIconConverter"/>
+        <BitmapImage UriSource='/RagnarokOnlineItemViewer;component/Data/DefaultImage.png' x:Key="DefaultImage"/>
+    </UserControl.Resources>
     <DockPanel Margin="0,0,10,0">
         <DockPanel DockPanel.Dock="Top">
             <TextBlock VerticalAlignment="Center" Margin="10"  Text="ID:"/>
@@ -23,11 +28,18 @@
         </DockPanel>
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" Margin="10,0,0,7" Text="Description:"/>
-            <c:ColoredRichTextBox Margin="10,0,10,10" Text="{Binding Description, Mode=OneWay}" VerticalScrollBarVisibility="Auto" IsReadOnly="True">
-                <c:ColoredRichTextBox.Background>
-                    <SolidColorBrush Color="White" Opacity="0.5"/>
-                </c:ColoredRichTextBox.Background>
-            </c:ColoredRichTextBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <c:ColoredRichTextBox Margin="10,0,10,10" Text="{Binding Description, Mode=OneWay}" VerticalScrollBarVisibility="Auto" IsReadOnly="True">
+                    <c:ColoredRichTextBox.Background>
+                        <SolidColorBrush Color="White" Opacity="0.5"/>
+                    </c:ColoredRichTextBox.Background>
+                </c:ColoredRichTextBox>
+                <Image  Grid.Column="1" Source="{Binding ID, TargetNullValue='{StaticResource DefaultImage}', Converter={StaticResource IdToIconConverter}, ConverterParameter='Data\\Images|.gif', Mode=OneWay}" VerticalAlignment="Top" Width="100"/>
+            </Grid>
         </DockPanel>
     </DockPanel>
 </UserControl>

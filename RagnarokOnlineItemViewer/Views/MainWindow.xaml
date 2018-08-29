@@ -6,7 +6,7 @@
         xmlns:views ="clr-namespace:RagnarokOnlineItemViewer.Views"
         xmlns:viewModels="clr-namespace:RagnarokOnlineItemViewer.ViewModels"
         mc:Ignorable="d"
-        Title="Ragnarok Online Item Viewer" Height="400" Width="600">
+        Title="Ragnarok Online Item Viewer" Height="400" Width="700">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModels:ItemsViewModel}">
             <views:ItemsView/>
