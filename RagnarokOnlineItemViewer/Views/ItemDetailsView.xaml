@@ -9,10 +9,13 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <converter:IdToIconConverter x:Key="IdToIconConverter"/>
+        <BitmapImage UriSource='/RagnarokOnlineItemViewer;component/Data/DefaultIcon.png' x:Key="DefaultIcon"/>
         <BitmapImage UriSource='/RagnarokOnlineItemViewer;component/Data/DefaultImage.png' x:Key="DefaultImage"/>
     </UserControl.Resources>
     <DockPanel Margin="0,0,10,0">
         <DockPanel DockPanel.Dock="Top">
+
+            <Image Source="{Binding ID, TargetNullValue='{StaticResource DefaultIcon}', Converter={StaticResource IdToIconConverter}, ConverterParameter='Data\\Icons|.gif', Mode=OneWay}" Width="24"/>
             <TextBlock VerticalAlignment="Center" Margin="10"  Text="ID:"/>
             <TextBox Margin="0,10,0,7" Text="{Binding ID, Mode=OneWay}" MinWidth="40" IsReadOnly="True">
                 <TextBox.Background>
