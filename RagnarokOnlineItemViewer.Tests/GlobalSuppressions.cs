@@ -6,4 +6,5 @@
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Style", "IDE0017:Simplify object initialization", Justification = "<Pending>", Scope = "member", Target = "~M:RagnarokOnlineItemViewer.Tests.IntegrationTests.CurrentDetailsView_ReturnsDetailsOfSelectedItem_AfterSettingNewSelectedItem" )]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Style", "IDE0039:Use local function", Justification = "<Pending>", Scope = "member", Target = "~M:RagnarokOnlineItemViewer.Tests.IdToIconConverterTests.IdToIconConverter_ThrowsException_OnIdWithIconImageButNullParameter" )]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage( "Style", "IDE0039:Use local function", Justification = "<Pending>", Scope = "member", Target = "~M:RagnarokOnlineItemViewer.Tests.IdToIconConverterTests.IdToIconConverter_ThrowsException_OnNullValue" )]
 
