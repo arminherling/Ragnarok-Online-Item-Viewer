@@ -163,12 +163,12 @@
     <Resource Include="7897.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\DefaultIcon.png">
+    <Resource Include="Data\DefaultIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\DefaultImage.png">
+    </Resource>
+    <Resource Include="Data\DefaultImage.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\Icons\" />

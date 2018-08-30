@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RagnarokOnlineItemViewer
+namespace RagnarokOnlineItemViewer.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
