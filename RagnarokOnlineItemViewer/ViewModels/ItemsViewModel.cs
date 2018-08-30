@@ -86,7 +86,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
             {
                 var item = (Item)e.Item;
                 e.Accepted = item.ID.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
-                    || item.Name.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0;
+                    || item.Name.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
+                    || item.Description.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0;
             }
         }
 
