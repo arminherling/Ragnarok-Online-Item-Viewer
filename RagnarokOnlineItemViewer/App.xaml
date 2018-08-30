@@ -1,9 +1,15 @@
 ﻿<Application x:Class="RagnarokOnlineItemViewer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RagnarokOnlineItemViewer"
+             xmlns:converter="clr-namespace:RagnarokOnlineItemViewer.Converters"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <converter:BooleanToInvisibilityConverter x:Key="BooleanToInvisibilityConverter"/>
+            <converter:IdToIconConverter x:Key="IdToIconConverter"/>
+            <BitmapImage UriSource='/RagnarokOnlineItemViewer;component/Data/DefaultIcon.png' x:Key="DefaultIcon"/>
+            <BitmapImage UriSource='/RagnarokOnlineItemViewer;component/Data/DefaultImage.png' x:Key="DefaultImage"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
