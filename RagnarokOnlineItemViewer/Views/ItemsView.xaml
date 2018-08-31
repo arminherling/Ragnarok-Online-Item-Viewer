@@ -21,7 +21,10 @@
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID" Width="65">
+                        <GridViewColumn Width="65">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Command="{Binding Path=ItemListHeaderClickCommand}" CommandParameter="ID">ID</GridViewColumnHeader>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -31,7 +34,11 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Width="190" DisplayMemberBinding="{Binding Name}">
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Command="{Binding Path=ItemListHeaderClickCommand}" CommandParameter="Name">Name</GridViewColumnHeader>
+                            </GridViewColumn.Header>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
                 <ListView.Background>

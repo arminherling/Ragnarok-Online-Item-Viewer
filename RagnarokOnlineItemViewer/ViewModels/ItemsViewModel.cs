@@ -25,6 +25,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
             _itemViewSource.Source = _itemCollection;
             _itemViewSource.Filter += ApplyItemFilter;
 
+            ItemListHeaderClickCommand = new DelegateCommand<string>( OnSortByListHeader );
+
             foreach( var item in _itemRepository.All() )
                 _itemCollection.Add( item );
 
@@ -32,6 +34,11 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
             if( TotalItemCount >= 1 )
                 SelectedItem = _itemCollection.First();
+        }
+
+        private void OnSortByListHeader( string headerName )
+        {
+            //TODO do sorting here
         }
 
         public ICollectionView Items => _itemViewSource.View;
@@ -69,6 +76,8 @@ namespace RagnarokOnlineItemViewer.ViewModels
                 UpdateDetailsViewModel();
             }
         }
+
+        public DelegateCommand<string> ItemListHeaderClickCommand { get; }
 
         public ItemDetailsViewModel CurrentDetailsViewModel
         {
