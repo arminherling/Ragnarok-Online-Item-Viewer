@@ -23,7 +23,7 @@ namespace RagnarokOnlineItemViewer.Tests
         [Test]
         public void IDProperty_ReturnsModelsID_AfterPassingAnItemIntoTheViewModel()
         {
-            var expectedNumber = "123";
+            var expectedNumber = 123;
             var viewModel = new ItemDetailsViewModel();
             viewModel.SetItem( new Item( id: expectedNumber ) );
 
@@ -60,7 +60,7 @@ namespace RagnarokOnlineItemViewer.Tests
         public void ItemProperties_ReturnPreviousSetItem_AfterPassinInNull()
         {
             var expectedItem = new Item(
-                id: "610",
+                id: 610,
                 name: "Yggdrasil Leaf",
                 description: "Leaf from the Yggdrasil tree which maintains the mortal coil. It can bring life to fallen characters." );
             var viewModel = new ItemDetailsViewModel();
@@ -68,7 +68,7 @@ namespace RagnarokOnlineItemViewer.Tests
 
             viewModel.SetItem( null );
 
-            Assert.AreEqual( expectedItem.ID, viewModel.ID );
+            Assert.AreEqual( expectedItem.ID.ToString(), viewModel.ID );
             Assert.AreEqual( expectedItem.Name, viewModel.Name );
             Assert.AreEqual( expectedItem.Description, viewModel.Description );
         }

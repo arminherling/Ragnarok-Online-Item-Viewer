@@ -104,7 +104,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
             else
             {
                 var item = (Item)e.Item;
-                e.Accepted = item.ID.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
+                e.Accepted = item.ID.ToString().IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
                     || item.Name.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0
                     || item.Description.IndexOf( SearchInput, StringComparison.OrdinalIgnoreCase ) >= 0;
             }

@@ -17,7 +17,7 @@ namespace RagnarokOnlineItemViewer.Converters
 
             var directoryPath = AppDomain.CurrentDomain.BaseDirectory;
             var split = ( parameter as string ).Split( '|' );
-            var iconPath = Path.Combine( directoryPath, split[0], (string)value + split[1] );
+            var iconPath = Path.Combine( directoryPath, split[0], value.ToString() + split[1] );
             if( !File.Exists( iconPath ) )
                 iconPath = null;
 

@@ -12,14 +12,14 @@ namespace RagnarokOnlineItemViewer.Tests
         public void CurrentDetailsView_ReturnsDetailsOfSelectedItem_AfterSettingNewSelectedItem()
         {
             var expectedItem = new Item(
-                id: "501",
+                id: 501,
                 name: "Red Potion",
                 description: "A potion made from ground Red Herbs that restores about 45 HP." );
             var itemsViewModel = new ItemsViewModel( new FakeItemRepository() );
 
             itemsViewModel.SelectedItem = expectedItem;
 
-            Assert.AreEqual( expectedItem.ID, itemsViewModel.CurrentDetailsViewModel.ID );
+            Assert.AreEqual( expectedItem.ID.ToString(), itemsViewModel.CurrentDetailsViewModel.ID );
             Assert.AreEqual( expectedItem.Name, itemsViewModel.CurrentDetailsViewModel.Name );
             Assert.AreEqual( expectedItem.Description, itemsViewModel.CurrentDetailsViewModel.Description );
         }
@@ -28,7 +28,7 @@ namespace RagnarokOnlineItemViewer.Tests
         public void CurrentDetailsView_ReturnsDetailsOfFirstItem_IfThereAreAnyItems()
         {
             var expectedItem = new Item(
-                id: "501",
+                id: 501,
                 name: "Red Potion",
                 description: "A potion made from ground Red Herbs that restores about 45 HP." );
             var fakeRepo = new FakeItemRepository();
@@ -36,7 +36,7 @@ namespace RagnarokOnlineItemViewer.Tests
 
             var itemsViewModel = new ItemsViewModel( fakeRepo );
 
-            Assert.AreEqual( expectedItem.ID, itemsViewModel.CurrentDetailsViewModel.ID );
+            Assert.AreEqual( expectedItem.ID.ToString(), itemsViewModel.CurrentDetailsViewModel.ID );
             Assert.AreEqual( expectedItem.Name, itemsViewModel.CurrentDetailsViewModel.Name );
             Assert.AreEqual( expectedItem.Description, itemsViewModel.CurrentDetailsViewModel.Description );
         }

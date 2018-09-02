@@ -24,11 +24,11 @@ namespace RagnarokOnlineItemViewer.Tests
         public void AllItems_ReturnsFilteredItemView_AfterSettingFilterWithIdString()
         {
             var fakeRepo = new FakeItemRepository();
-            fakeRepo.AddFake( new Item( "501", "Red Potion") );
-            fakeRepo.AddFake( new Item( "502", "Orange Potion") );
-            fakeRepo.AddFake( new Item( "503", "Yellow Potion") );
-            fakeRepo.AddFake( new Item( "511", "Green Herb" ) );
-            fakeRepo.AddFake( new Item( "512", "Apple") );
+            fakeRepo.AddFake( new Item( 501, "Red Potion") );
+            fakeRepo.AddFake( new Item( 502, "Orange Potion") );
+            fakeRepo.AddFake( new Item( 503, "Yellow Potion") );
+            fakeRepo.AddFake( new Item( 511, "Green Herb" ) );
+            fakeRepo.AddFake( new Item( 512, "Apple") );
             var itemsViewModel = new ItemsViewModel( fakeRepo );
             var expectedCount = 3;
             itemsViewModel.SearchInput = "50";
@@ -42,11 +42,11 @@ namespace RagnarokOnlineItemViewer.Tests
         public void AllItems_ReturnsFilteredItemView_AfterSettingFilterWithNameString()
         {
             var fakeRepo = new FakeItemRepository();
-            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
-            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
-            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
-            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
-            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            fakeRepo.AddFake( new Item( 501, "Red Potion" ) );
+            fakeRepo.AddFake( new Item( 502, "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( 503, "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( 507, "Red Herb" ) );
+            fakeRepo.AddFake( new Item( 512, "Apple" ) );
             var itemsViewModel = new ItemsViewModel( fakeRepo );
             var expectedCount = 2;
             itemsViewModel.SearchInput = "Red";
@@ -72,11 +72,11 @@ namespace RagnarokOnlineItemViewer.Tests
         public void SearchIsActive_ReturnsTrue_AfterAssigningAStringToSearchInputOnViewModelWithItems()
         {
             var fakeRepo = new FakeItemRepository();
-            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
-            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
-            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
-            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
-            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            fakeRepo.AddFake( new Item( 501, "Red Potion" ) );
+            fakeRepo.AddFake( new Item( 502, "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( 503, "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( 507, "Red Herb" ) );
+            fakeRepo.AddFake( new Item( 512, "Apple" ) );
             var itemsViewModel = new ItemsViewModel( fakeRepo );
             var expected = true;
 
@@ -101,11 +101,11 @@ namespace RagnarokOnlineItemViewer.Tests
         public void SearchIsActive_ReturnsFalse_OnViewModelWithItemsWithoutAssigningSearchInput()
         {
             var fakeRepo = new FakeItemRepository();
-            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
-            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
-            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
-            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
-            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            fakeRepo.AddFake( new Item( 501, "Red Potion" ) );
+            fakeRepo.AddFake( new Item( 502, "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( 503, "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( 507, "Red Herb" ) );
+            fakeRepo.AddFake( new Item( 512, "Apple" ) );
             var itemsViewModel = new ItemsViewModel( fakeRepo );
             var expected = false;
 
@@ -118,11 +118,11 @@ namespace RagnarokOnlineItemViewer.Tests
         public void OnSortByListHeader_ReturnsSortedListByNameAscending_SortingByName()
         {
             var fakeRepo = new FakeItemRepository();
-            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
-            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
-            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
-            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
-            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            fakeRepo.AddFake( new Item( 501, "Red Potion" ) );
+            fakeRepo.AddFake( new Item( 502, "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( 503, "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( 507, "Red Herb" ) );
+            fakeRepo.AddFake( new Item( 512, "Apple" ) );
             var itemsViewModel = new ItemsViewModel( fakeRepo );
 
             itemsViewModel.ItemListHeaderClickCommand.Execute("Name");
@@ -139,11 +139,11 @@ namespace RagnarokOnlineItemViewer.Tests
         public void OnSortByListHeader_ReturnsSortedListByNameDescending_SortingByName()
         {
             var fakeRepo = new FakeItemRepository();
-            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
-            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
-            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
-            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
-            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            fakeRepo.AddFake( new Item( 501, "Red Potion" ) );
+            fakeRepo.AddFake( new Item( 502, "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( 503, "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( 507, "Red Herb" ) );
+            fakeRepo.AddFake( new Item( 512, "Apple" ) );
             var itemsViewModel = new ItemsViewModel( fakeRepo );
 
             itemsViewModel.ItemListHeaderClickCommand.Execute( "Name" );
