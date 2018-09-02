@@ -101,6 +101,7 @@
     <Compile Include="Services\IRepository.cs" />
     <Compile Include="Services\ItemRepository.cs" />
     <Compile Include="ItemSortingBehavior.cs" />
+    <Compile Include="SortAdorner.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\ItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
