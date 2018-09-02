@@ -156,5 +156,24 @@ namespace RagnarokOnlineItemViewer.Tests
             Assert.AreEqual( "Yellow Potion", firstItem.Name );
             Assert.AreEqual( "Apple", lastItem.Name );
         }
+
+        [Test]
+        public void OnSortByListHeader_ReturnsSortedListByNameAscending_SortingByID()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( 1254 ) );
+            fakeRepo.AddFake( new Item( 10 ) );
+            fakeRepo.AddFake( new Item( 357) );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+
+            itemsViewModel.ItemListHeaderClickCommand.Execute( "ID" );
+            itemsViewModel.Items.MoveCurrentToFirst();
+            var firstItem = (Item)itemsViewModel.Items.CurrentItem;
+            itemsViewModel.Items.MoveCurrentToLast();
+            var lastItem = (Item)itemsViewModel.Items.CurrentItem;
+
+            Assert.AreEqual( 10, firstItem.ID );
+            Assert.AreEqual( 1254, lastItem.ID );
+        }
     }
 }
