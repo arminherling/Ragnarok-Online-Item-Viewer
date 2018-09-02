@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,10 +95,12 @@
     <Compile Include="Converters\BooleanToInvisibilityConverter.cs" />
     <Compile Include="Converters\IdToIconConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="ItemSorting.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="ColoredStringParser.cs" />
     <Compile Include="Services\IRepository.cs" />
     <Compile Include="Services\ItemRepository.cs" />
+    <Compile Include="ItemSortingBehavior.cs" />
     <Compile Include="ViewModels\ItemsViewModel.cs" />
     <Compile Include="ViewModels\ItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

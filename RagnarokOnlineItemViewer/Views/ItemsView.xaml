@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:app="clr-namespace:RagnarokOnlineItemViewer"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <DockPanel>
@@ -19,12 +21,12 @@
                 <TextBlock Margin="7,0,10,10" VerticalAlignment="Center" Foreground="Gray" Text="Search" IsHitTestVisible="False" Visibility="{Binding SearchIsActive, Converter={StaticResource BooleanToInvisibilityConverter}}"/>
             </Grid>
             <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" SelectionMode="Single" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <i:Interaction.Behaviors>
+                    <app:ItemSortingBehavior />
+                </i:Interaction.Behaviors>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="65">
-                            <GridViewColumn.Header>
-                                <GridViewColumnHeader Command="{Binding Path=ItemListHeaderClickCommand}" CommandParameter="ID">ID</GridViewColumnHeader>
-                            </GridViewColumn.Header>
+                        <GridViewColumn Width="65" Header="ID">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -34,11 +36,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Width="190" DisplayMemberBinding="{Binding Name}">
-                            <GridViewColumn.Header>
-                                <GridViewColumnHeader Command="{Binding Path=ItemListHeaderClickCommand}" CommandParameter="Name">Name</GridViewColumnHeader>
-                            </GridViewColumn.Header>
-                        </GridViewColumn>
+                        <GridViewColumn Width="190" Header="Name" DisplayMemberBinding="{Binding Name}" />
                     </GridView>
                 </ListView.View>
                 <ListView.Background>

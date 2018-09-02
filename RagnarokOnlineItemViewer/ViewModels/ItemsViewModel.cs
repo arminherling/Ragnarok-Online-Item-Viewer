@@ -14,8 +14,6 @@ namespace RagnarokOnlineItemViewer.ViewModels
         private string _searchInput;
         private int _totalItemCount;
         private int _filteredItemCount;
-        private string _itemViewSortColumn = null;
-        private ListSortDirection _listSortDirection = ListSortDirection.Descending;
         private IRepository<Item> _itemRepository;
         private ObservableCollection<Item> _itemCollection = new ObservableCollection<Item>();
         private CollectionViewSource _itemViewSource = new CollectionViewSource();
@@ -27,8 +25,6 @@ namespace RagnarokOnlineItemViewer.ViewModels
             _itemViewSource.Source = _itemCollection;
             _itemViewSource.Filter += ApplyItemFilter;
 
-            ItemListHeaderClickCommand = new DelegateCommand<string>( OnSortByListHeader );
-
             foreach( var item in _itemRepository.All() )
                 _itemCollection.Add( item );
 
@@ -36,19 +32,6 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
             if( TotalItemCount >= 1 )
                 SelectedItem = _itemCollection.First();
-        }
-
-        private void OnSortByListHeader( string headerName )
-        {
-            _itemViewSortColumn = headerName;
-            Items.SortDescriptions.Clear();
-
-            if( _listSortDirection == ListSortDirection.Descending )
-                _listSortDirection = ListSortDirection.Ascending;
-            else
-                _listSortDirection = ListSortDirection.Descending;
-
-            Items.SortDescriptions.Add( new SortDescription( _itemViewSortColumn, _listSortDirection ) );
         }
 
         public ICollectionView Items => _itemViewSource.View;
@@ -86,8 +69,6 @@ namespace RagnarokOnlineItemViewer.ViewModels
                 UpdateDetailsViewModel();
             }
         }
-
-        public DelegateCommand<string> ItemListHeaderClickCommand { get; }
 
         public ItemDetailsViewModel CurrentDetailsViewModel
         {
