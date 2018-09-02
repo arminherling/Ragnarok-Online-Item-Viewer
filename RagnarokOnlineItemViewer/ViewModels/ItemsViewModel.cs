@@ -14,6 +14,7 @@ namespace RagnarokOnlineItemViewer.ViewModels
         private string _searchInput;
         private int _totalItemCount;
         private int _filteredItemCount;
+        private string _itemViewSortColumn = null;
         private IRepository<Item> _itemRepository;
         private ObservableCollection<Item> _itemCollection = new ObservableCollection<Item>();
         private CollectionViewSource _itemViewSource = new CollectionViewSource();
@@ -38,7 +39,11 @@ namespace RagnarokOnlineItemViewer.ViewModels
 
         private void OnSortByListHeader( string headerName )
         {
-            //TODO do sorting here
+            _itemViewSortColumn = headerName;
+            Items.SortDescriptions.Clear();
+
+            var sortDirection = ListSortDirection.Ascending;
+            Items.SortDescriptions.Add( new SortDescription( _itemViewSortColumn, sortDirection ) );
         }
 
         public ICollectionView Items => _itemViewSource.View;

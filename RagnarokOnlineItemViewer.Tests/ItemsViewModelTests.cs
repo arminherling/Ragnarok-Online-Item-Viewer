@@ -113,5 +113,48 @@ namespace RagnarokOnlineItemViewer.Tests
 
             Assert.AreEqual( expected, actual );
         }
+
+        [Test]
+        public void OnSortByListHeader_ReturnsSortedListByNameAscending_SortingByName()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
+            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
+            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+
+            itemsViewModel.ItemListHeaderClickCommand.Execute("Name");
+            itemsViewModel.Items.MoveCurrentToFirst();
+            var firstItem = (Item)itemsViewModel.Items.CurrentItem;
+            itemsViewModel.Items.MoveCurrentToLast();
+            var lastItem = (Item)itemsViewModel.Items.CurrentItem;
+
+            Assert.AreEqual( "Apple", firstItem.Name );
+            Assert.AreEqual( "Yellow Potion", lastItem.Name );
+        }
+
+        [Test]
+        public void OnSortByListHeader_ReturnsSortedListByNameDescending_SortingByName()
+        {
+            var fakeRepo = new FakeItemRepository();
+            fakeRepo.AddFake( new Item( "501", "Red Potion" ) );
+            fakeRepo.AddFake( new Item( "502", "Orange Potion" ) );
+            fakeRepo.AddFake( new Item( "503", "Yellow Potion" ) );
+            fakeRepo.AddFake( new Item( "507", "Red Herb" ) );
+            fakeRepo.AddFake( new Item( "512", "Apple" ) );
+            var itemsViewModel = new ItemsViewModel( fakeRepo );
+
+            itemsViewModel.ItemListHeaderClickCommand.Execute( "Name" );
+            itemsViewModel.ItemListHeaderClickCommand.Execute( "Name" );
+            itemsViewModel.Items.MoveCurrentToFirst();
+            var firstItem = (Item)itemsViewModel.Items.CurrentItem;
+            itemsViewModel.Items.MoveCurrentToLast();
+            var lastItem = (Item)itemsViewModel.Items.CurrentItem;
+
+            Assert.AreEqual( "Yellow Potion", firstItem.Name );
+            Assert.AreEqual( "Apple", lastItem.Name );
+        }
     }
 }
